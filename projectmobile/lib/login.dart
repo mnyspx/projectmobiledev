@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -6,9 +10,50 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  String _urlLogin = 'http://10.0.2.2:3000/login';
+  List dataID;
+
+  String loginStatus = '';
+
+  TextEditingController _username = TextEditingController();
+  TextEditingController _password = TextEditingController();
+
+  Future connectLogin() async {
+    http.Response response = await http.post(
+      _urlLogin,
+      body: {'username': _username.text, 'password': _password.text},
+    );
+    if (response.statusCode == 200) {
+      //OK
+      // print(response.body.toString());
+      // setState(() {
+      //   // _message = response.body.toString();
+      // });
+      dataID = json.decode(response.body);
+      print(dataID);
+      saveUserData();
+      setState(() {
+        Navigator.pushNamedAndRemoveUntil(
+            context, '/mainpage', (route) => false);
+      });
+    } else {
+      // print('server error');
+      print(response.body.toString());
+      setState(() {
+        loginStatus = response.body.toString();
+      });
+    }
+  }
+
+  void saveUserData() async {
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    String jsonUserData = jsonEncode(dataID);
+    pref.setString('userData', jsonUserData);
+  }
+
   void checkLogin() {
     setState(() {
-      Navigator.pushReplacementNamed(context, '/mainpage');
+      connectLogin();
     });
   }
 
@@ -16,6 +61,17 @@ class _LoginState extends State<Login> {
     setState(() {
       Navigator.pushNamed(context, '/register');
     });
+  }
+
+  // Future<void> loadUserData()async{
+  //   SharedPreferences pref = await SharedPreferences.getInstance();
+  //   String jsonUserData = pref.getString('userData');
+  // }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
   }
 
   @override
@@ -41,6 +97,7 @@ class _LoginState extends State<Login> {
               height: 40,
             ),
             TextFormField(
+              controller: _username,
               decoration: InputDecoration(
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(30.0))),
@@ -50,6 +107,8 @@ class _LoginState extends State<Login> {
               height: 20,
             ),
             TextFormField(
+              obscureText: true,
+              controller: _password,
               decoration: InputDecoration(
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(30.0))),
@@ -59,17 +118,26 @@ class _LoginState extends State<Login> {
               height: 20,
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Forgot your password ?',
-                  style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.blue),
+                  loginStatus,
+                  style: TextStyle(fontSize: 15, color: Colors.red),
                 ),
               ],
             ),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.end,
+            //   children: [
+            //     Text(
+            //       'Forgot your password ?',
+            //       style: TextStyle(
+            //           fontSize: 15,
+            //           fontWeight: FontWeight.bold,
+            //           color: Colors.blue),
+            //     ),
+            //   ],
+            // ),
             SizedBox(
               height: 20,
             ),

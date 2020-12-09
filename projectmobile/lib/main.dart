@@ -23,35 +23,36 @@ import 'package:projectmobile/search.dart';
 
 import 'transaction.dart';
 
-void main() {
-  runApp(
-    MaterialApp(
-      theme: ThemeData(fontFamily: 'Montserrat'),
-      initialRoute: '/login',
-      routes: {
-        '/login': (context) => Login(),
-        '/register': (context) => CreateAccount(),
-        '/mainpage': (context) => MainPage(),
-        '/search': (context) => SearchPage(),
-        '/resOfSearch': (context) => ResultSearch(),
-        '/campInfo': (context) => CampsiteInfo(),
-        '/rentInfo': (context) => RentalInfo(),
-        '/payment': (context) => Payment(),
-        '/history': (context) => History(),
-        '/noti': (context) => Notifications(),
-        '/accPage': (context) => Account(),
-        '/manageArea': (context) => ManageArea(),
-        '/addCamp': (context) => AddNewCampsite(),
-        '/addRent': (context) => AddNewRental(),
-        '/opennewArea': (context) => OpenNewArea(),
-        '/editCamp': (context) => EditCampInfo(),
-        '/editRent': (context) => EditRentInfo(),
-        '/editAccount': (context) => EditAccount(),
-        '/cancelReservation': (context) => CancelReservation(),
-        '/ownerCancelReserv': (context) => OwnerCancelReservation(),
-        '/ownerConfirmReserv': (context) => OwnerConfirmReserv(),
-        '/manageReserv': (context) => ManageReservation(),
-      },
-    ),
-  );
-}
+  void main() {
+    runApp(
+      MaterialApp(
+        theme: ThemeData(fontFamily: 'Montserrat'),
+        initialRoute: '/login',
+        routes: {
+          '/login': (context) => Login(),
+          '/register': (context) => CreateAccount(),
+          '/mainpage': (context) => MainPage(),
+          '/search': (context) => SearchPage(),
+          '/resOfSearch': (context) => ResultSearch(),
+          '/campInfo': (context) => CampsiteInfo(),
+          '/rentInfo': (context) => RentalInfo(),
+          '/payment': (context) => Payment(),
+          '/history': (context) => History(),
+          '/noti': (context) => Notifications(),
+          '/accPage': (context) => Account(),
+          '/manageArea': (context) => ManageArea(),
+          '/addCamp': (context) => AddNewCampsite(),
+          '/addRent': (context) => AddNewRental(),
+          '/opennewArea': (context) => OpenNewArea(),
+          '/editCamp': (context) => EditCampInfo(),
+          '/editRent': (context) => EditRentInfo(),
+          '/editAccount': (context) => EditAccount(),
+          '/cancelReservation': (context) => CancelReservation(),
+          '/ownerCancelReserv': (context) => OwnerCancelReservation(),
+          '/ownerConfirmReserv': (context) => OwnerConfirmReserv(),
+          '/manageReserv': (context) => ManageReservation(),
+        },
+      ),
+    );
+  }
+
