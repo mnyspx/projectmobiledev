@@ -80,110 +80,113 @@ class _LoginState extends State<Login> {
       // appBar: AppBar(
       //   title: Text('Title'),
       // ),
-      body: Padding(
-        padding: const EdgeInsets.all(40.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(
-              'assets/images/camp.png',
-              width: 200,
-            ),
-            Text(
-              'Simple Camp',
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(
-              height: 40,
-            ),
-            TextFormField(
-              controller: _username,
-              decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(30.0))),
-                  labelText: 'Username'),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            TextFormField(
-              obscureText: true,
-              controller: _password,
-              decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(30.0))),
-                  labelText: 'Password'),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  loginStatus,
-                  style: TextStyle(fontSize: 15, color: Colors.red),
-                ),
-              ],
-            ),
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.end,
-            //   children: [
-            //     Text(
-            //       'Forgot your password ?',
-            //       style: TextStyle(
-            //           fontSize: 15,
-            //           fontWeight: FontWeight.bold,
-            //           color: Colors.blue),
-            //     ),
-            //   ],
-            // ),
-            SizedBox(
-              height: 20,
-            ),
-            ButtonTheme(
-              minWidth: 150,
-              height: 50,
-              child: RaisedButton(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30.0),
-                ),
-                onPressed: checkLogin,
-                child: Text(
-                  'Login',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-                color: Color.fromRGBO(0, 128, 129, 1),
-                textColor: Colors.white,
+      body: Container(
+        color: Color.fromRGBO(255, 248, 220, 0.5),
+        child: Padding(
+          padding: const EdgeInsets.all(40.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                'assets/images/camp.png',
+                width: 200,
               ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Text(
-              'Or',
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            ButtonTheme(
-              minWidth: 150,
-              height: 50,
-              child: RaisedButton(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30.0),
-                ),
-                onPressed: createNewAccount,
-                child: Text(
-                  'Create an account',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-                color: Colors.white,
-                textColor: Color.fromRGBO(0, 128, 129, 1),
+              Text(
+                'Simple Camp',
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
-            ),
-          ],
+              SizedBox(
+                height: 40,
+              ),
+              TextFormField(
+                controller: _username,
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(30.0))),
+                    labelText: 'Username'),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              TextFormField(
+                obscureText: true,
+                controller: _password,
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(30.0))),
+                    labelText: 'Password'),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    loginStatus,
+                    style: TextStyle(fontSize: 15, color: Colors.red),
+                  ),
+                ],
+              ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.end,
+              //   children: [
+              //     Text(
+              //       'Forgot your password ?',
+              //       style: TextStyle(
+              //           fontSize: 15,
+              //           fontWeight: FontWeight.bold,
+              //           color: Colors.blue),
+              //     ),
+              //   ],
+              // ),
+              SizedBox(
+                height: 20,
+              ),
+              ButtonTheme(
+                minWidth: 150,
+                height: 50,
+                child: RaisedButton(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                  onPressed: checkLogin,
+                  child: Text(
+                    'Login',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  color: Color.fromRGBO(0, 128, 129, 1),
+                  textColor: Colors.white,
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Text(
+                'Or',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              ButtonTheme(
+                minWidth: 150,
+                height: 50,
+                child: RaisedButton(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                  onPressed: createNewAccount,
+                  child: Text(
+                    'Create an account',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  color: Colors.white,
+                  textColor: Color.fromRGBO(0, 128, 129, 1),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

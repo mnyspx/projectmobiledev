@@ -180,24 +180,27 @@ class _MainPageState extends State<MainPage> {
     return Container(
       child: Column(
         children: [
-          Row(
-            children: [
-              Text(
-                'Campsite',
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-              ),
-            ],
-          ),
-          Row(
-            children: [
-              Text(
-                'Suggestions',
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-              ),
-            ],
+          // Row(
+          //   children: [
+          //     Text(
+          //       'Campsite',
+          //       style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+          //     ),
+          //   ],
+          // ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(20, 20, 0, 0),
+            child: Row(
+              children: [
+                Text(
+                  'Places you may like . . .',
+                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
           ),
           SizedBox(
-            height: 30,
+            height: 20,
           ),
           InkWell(
             onTap: () {
@@ -205,11 +208,16 @@ class _MainPageState extends State<MainPage> {
               goCampInfo();
               // Navigator.pushNamed(context, '/campInfo');
             },
+            //TODO:
             child: Container(
+              // color: Colors.red,
+              width: 500,
+              height: 250,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(15.0),
                 child: Image.asset(
                   'assets/images/${data[randNum]['image']}',
+                  fit: BoxFit.cover,
                 ),
               ),
             ),
@@ -252,10 +260,17 @@ class _MainPageState extends State<MainPage> {
               flex: 3,
               child: sugimg(),
             ),
-            Text(
-              'Other place',
-              style: TextStyle(
-                fontSize: 20,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Row(
+                children: [
+                  Text(
+                    'Other place(s)',
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                  ),
+                ],
               ),
             ),
             Expanded(
@@ -422,7 +437,9 @@ class _MainPageState extends State<MainPage> {
                     child: Image.asset(
                       'assets/images/${data[index]['image']}',
                       width: 230,
-                      fit: BoxFit.cover,
+                      fit: data[index]['statusService'] == 1
+                          ? BoxFit.contain
+                          : BoxFit.cover,
                     ),
                   ),
                 ),

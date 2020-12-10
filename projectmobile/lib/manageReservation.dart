@@ -167,9 +167,9 @@ class _ManageReservationState extends State<ManageReservation> {
     super.initState();
     loadUserData();
     Future.delayed(Duration.zero, () {
-      // setState(() {
+      setState(() {
         connectReserveReq();
-      // });
+      });
     });
   }
 
