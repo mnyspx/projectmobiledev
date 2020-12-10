@@ -1,0 +1,107 @@
+
+
+### login
+POST http://localhost:3000/login HTTP/1.1
+content-type: application/json
+
+{
+    "username": "user3",
+    "password": "1234"
+}
+
+
+### register
+POST http://localhost:3000/register HTTP/1.1
+content-type: application/json
+
+{
+    "username": "user3",
+    "password": "1234",
+    "email": "asd@adasas.com",
+    "fullname" : "asss qweqrtt",
+    "phone" : "00000001"
+}
+
+### add camp
+POST http://localhost:3000/addServ HTTP/1.1
+content-type: application/json
+
+{
+    "name": "tttt",
+    "img": "08.jpg",
+    "desc": "description",
+    "contact" : "00000000",
+    "price" : "200",
+    "location" : "location",
+    "statusService" : "1",
+    "uid" : "1"
+}
+
+### query camp
+GET http://localhost:3000/serviceList HTTP/1.1
+content-type: application/json
+
+### query camp info
+POST http://localhost:3000/campi HTTP/1.1
+content-type: application/json
+
+{
+    "serid": "3"
+}
+
+### reserve camp
+POST http://localhost:3000/reserveCamp HTTP/1.1
+content-type: application/json
+
+{
+    "uid": "1",
+    "cid": "1",
+    "firstDate": "0000-00-00",
+    "lastDate" : "0000-00-00",
+    "day" : "1"
+}
+
+### all transaction
+POST http://localhost:3000/transac HTTP/1.1
+content-type: application/json
+
+{
+    "uid": "8"
+}
+
+### search
+POST http://localhost:3000/search HTTP/1.1
+content-type: application/json
+
+{
+    "keyword": "ca"
+}
+
+### search
+POST http://localhost:3000/viewService HTTP/1.1
+content-type: application/json
+
+{
+    "uid": "3"
+}
+
+### update information
+PUT http://localhost:3000/updatService HTTP/1.1
+content-type: application/json
+
+{
+    "name": "edit 1",
+    "desc": "description edit",
+    "location" : "1 edit",
+    "contact" : "00000000e",
+    "price" : "199",
+    "cid" : "10"
+}
+
+### reserve request
+POST http://localhost:3000/reserveReq HTTP/1.1
+content-type: application/json
+
+{
+    "uid": "9"
+}
